@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Demo portfolio website UMKM untuk coffee shop fiktif di Bandung. Dibuat dengan HTML, CSS, dan JavaScript.">
+  <title>Kopi Senja | Demo Website Coffee Shop Bandung</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Lewati ke konten utama</a>
+
+  <header class="site-header" data-header>
+    <nav class="nav container" aria-label="Navigasi utama">
+      <a class="brand" href="#home" aria-label="Kopi Senja Beranda">
+        <span class="brand__mark" aria-hidden="true">KS</span>
+        <span class="brand__text">
+          <strong>Kopi Senja</strong>
+          <small>Bandung</small>
+        </span>
+      </a>
+
+      <button class="nav-toggle" type="button" aria-controls="primary-navigation" aria-expanded="false" data-nav-toggle>
+        <span class="nav-toggle__line"></span>
+        <span class="nav-toggle__line"></span>
+        <span class="nav-toggle__line"></span>
+        <span class="sr-only">Buka menu navigasi</span>
+      </button>
+
+      <div class="nav-links" id="primary-navigation" data-nav-menu>
+        <a href="#home">Beranda</a>
+        <a href="#about">Tentang</a>
+        <a href="#menu">Menu</a>
+        <a href="#visit">Lokasi</a>
+        <a class="nav-cta" href="#reservation">Reservasi</a>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="hero" id="home" aria-label="Kopi Senja Coffee Shop Bandung">
+      <div class="hero__overlay"></div>
+      <div class="container hero__content">
+        <p class="eyebrow">Coffee shop lokal Bandung</p>
+        <h1>Kopi Senja Bandung</h1>
+        <p class="hero__lead">Tempat singgah untuk kopi lokal, roti hangat, dan obrolan sore di kawasan Braga.</p>
+        <div class="hero__actions" aria-label="Aksi utama">
+          <a class="button button--primary" href="#reservation"> Reservasi Meja <span aria-hidden="true">-&gt;</span></a>
+          <a class="button button--ghost" href="#menu">Lihat Menu</a>
+        </div>
+        <dl class="hero__facts" aria-label="Informasi singkat">
+          <div>
+            <dt>Jam buka</dt>
+            <dd>08.00-22.00 WIB</dd>
+          </div>
+          <div>
+            <dt>Lokasi</dt>
+            <dd>Braga, Bandung</dd>
+          </div>
+          <div>
+            <dt>Untuk</dt>
+            <dd>Dine-in, takeaway, kerja ringan</dd>
+          </div>
+        </dl>
+      </div>
+    </section>
+
+    <section class="section intro" aria-labelledby="intro-title">
+      <div class="container intro__grid">
+        <div class="intro__copy">
+          <p class="section-kicker">Solusi untuk UMKM</p>
+          <h2 id="intro-title">Landing page sederhana yang langsung menjawab kebutuhan pelanggan.</h2>
+        </div>
+        <div class="intro__items" aria-label="Fitur halaman">
+          <article>
+            <span class="item-number">01</span>
+            <h3>Informasi jelas</h3>
+            <p>Jam buka, lokasi, menu, dan kontak mudah ditemukan tanpa pelanggan harus mencari terlalu lama.</p>
+          </article>
+          <article>
+            <span class="item-number">02</span>
+            <h3>CTA praktis</h3>
+            <p>Tombol reservasi dan WhatsApp dibuat menonjol agar pengunjung bisa langsung bertindak.</p>
+          </article>
+          <article>
+            <span class="item-number">03</span>
+            <h3>Mobile rapi</h3>
+            <p>Layout, menu navigasi, gambar, dan formulir tetap nyaman dibaca dari layar kecil.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--soft about" id="about" aria-labelledby="about-title">
+      <div class="container split">
+        <div class="split__media">
+          <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=1200&q=80" alt="Barista sedang menuangkan kopi di coffee shop" loading="lazy" decoding="async">
+        </div>
+        <div class="split__content">
+          <p class="section-kicker">Tentang Kopi Senja</p>
+          <h2 id="about-title">Ruang kecil untuk menikmati kopi tanpa terburu-buru.</h2>
+          <p>Kopi Senja adalah coffee shop lokal dengan pilihan minuman berbasis espresso, manual brew, dan pastry sederhana. Halaman ini disusun agar pelanggan cepat memahami suasana, menu, lokasi, dan cara melakukan reservasi.</p>
+          <ul class="check-list">
+            <li>Biji kopi lokal dari Jawa Barat dan Sumatra.</li>
+            <li>Area duduk ringkas untuk ngobrol atau kerja ringan.</li>
+            <li>Menu harga jelas agar pelanggan bisa memutuskan lebih cepat.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="section menu" id="menu" aria-labelledby="menu-title">
+      <div class="container">
+        <div class="section-heading">
+          <p class="section-kicker">Menu pilihan</p>
+          <h2 id="menu-title">Favorit yang mudah dipahami pelanggan.</h2>
+          <p>Daftar menu dibuat ringkas seperti kebutuhan banyak UMKM: foto, deskripsi singkat, harga, dan label kategori.</p>
+        </div>
+
+        <div class="menu-grid">
+          <article class="menu-card">
+            <img src="https://images.unsplash.com/photo-1511920170033-f8396924c348?auto=format&fit=crop&w=900&q=80" alt="Espresso dalam cangkir putih" loading="lazy" decoding="async">
+            <div class="menu-card__body">
+              <p class="pill">Signature</p>
+              <h3>Kopi Senja Signature</h3>
+              <p>Espresso, susu segar, gula aren, dan sentuhan kayu manis.</p>
+              <strong>Rp25.000</strong>
+            </div>
+          </article>
+
+          <article class="menu-card">
+            <img src="https://images.unsplash.com/photo-1572442388796-11668a67e53d?auto=format&fit=crop&w=900&q=80" alt="Latte art di atas meja kayu" loading="lazy" decoding="async">
+            <div class="menu-card__body">
+              <p class="pill">Coffee</p>
+              <h3>Caramel Macchiato</h3>
+              <p>Espresso lembut, steamed milk, dan saus karamel.</p>
+              <strong>Rp30.000</strong>
+            </div>
+          </article>
+
+          <article class="menu-card">
+            <img src="https://images.unsplash.com/photo-1461023058943-07fcbe16d735?auto=format&fit=crop&w=900&q=80" alt="Es kopi dalam gelas tinggi" loading="lazy" decoding="async">
+            <div class="menu-card__body">
+              <p class="pill">Cold drink</p>
+              <h3>Es Kopi Susu Braga</h3>
+              <p>Kopi susu dingin dengan rasa ringan untuk cuaca Bandung siang hari.</p>
+              <strong>Rp24.000</strong>
+            </div>
+          </article>
+
+          <article class="menu-card">
+            <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=900&q=80" alt="Roti pastry segar di atas meja" loading="lazy" decoding="async">
+            <div class="menu-card__body">
+              <p class="pill">Pastry</p>
+              <h3>Croissant Butter</h3>
+              <p>Croissant renyah dengan butter, cocok untuk teman kopi pagi.</p>
+              <strong>Rp22.000</strong>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--dark experience" aria-labelledby="experience-title">
+      <div class="container experience__grid">
+        <div>
+          <p class="section-kicker">Pengalaman pelanggan</p>
+          <h2 id="experience-title">Informasi kecil yang membantu keputusan datang.</h2>
+        </div>
+        <div class="feature-grid">
+          <article>
+            <h3>Takeaway cepat</h3>
+            <p>Menu kopi susu dan pastry bisa dipesan untuk dibawa pulang.</p>
+          </article>
+          <article>
+            <h3>Meja kerja</h3>
+            <p>Beberapa meja dekat stop kontak untuk kerja singkat atau meeting kecil.</p>
+          </article>
+          <article>
+            <h3>Reservasi grup</h3>
+            <p>Form singkat membantu pelanggan menyiapkan kunjungan 2-8 orang.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section gallery" aria-labelledby="gallery-title">
+      <div class="container">
+        <div class="section-heading section-heading--left">
+          <p class="section-kicker">Suasana</p>
+          <h2 id="gallery-title">Visual yang membantu UMKM terlihat lebih dipercaya.</h2>
+        </div>
+        <div class="gallery-grid">
+          <img src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&w=1000&q=80" alt="Interior coffee shop dengan meja dan kursi" loading="lazy" decoding="async">
+          <img src="https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?auto=format&fit=crop&w=1000&q=80" alt="Suasana meja coffee shop yang hangat" loading="lazy" decoding="async">
+          <img src="https://images.unsplash.com/photo-1521017432531-fbd92d768814?auto=format&fit=crop&w=1000&q=80" alt="Bar coffee shop dengan mesin kopi" loading="lazy" decoding="async">
+        </div>
+      </div>
+    </section>
+
+    <section class="section reservation" id="reservation" aria-labelledby="reservation-title">
+      <div class="container reservation__grid">
+        <div class="reservation__content">
+          <p class="section-kicker">Reservasi meja</p>
+          <h2 id="reservation-title">Buat pesan WhatsApp dalam beberapa detik.</h2>
+          <p>Form ini tidak menyimpan data. Saat tombol ditekan, halaman akan membuat draft pesan WhatsApp yang bisa disesuaikan lagi oleh pengunjung.</p>
+        </div>
+
+        <form class="booking-form" data-booking-form>
+          <div class="form-row">
+            <label for="name">Nama</label>
+            <input id="name" name="name" type="text" autocomplete="name" placeholder="Nama Anda" required>
+          </div>
+
+          <div class="form-row form-row--split">
+            <div>
+              <label for="date">Tanggal</label>
+              <input id="date" name="date" type="date" required>
+            </div>
+            <div>
+              <label for="people">Jumlah orang</label>
+              <select id="people" name="people" required>
+                <option value="">Pilih</option>
+                <option value="2 orang">2 orang</option>
+                <option value="3-4 orang">3-4 orang</option>
+                <option value="5-8 orang">5-8 orang</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <label for="message">Catatan</label>
+            <textarea id="message" name="message" rows="4" placeholder="Contoh: ingin meja dekat stop kontak"></textarea>
+          </div>
+
+          <button class="button button--primary button--full" type="submit">
+            Buat Pesan WhatsApp
+            <span aria-hidden="true">-&gt;</span>
+          </button>
+          <p class="form-status" role="status" data-form-status></p>
+        </form>
+      </div>
+    </section>
+
+    <section class="section section--soft visit" id="visit" aria-labelledby="visit-title">
+      <div class="container visit__grid">
+        <div class="visit__details">
+          <p class="section-kicker">Lokasi dan kontak</p>
+          <h2 id="visit-title">Dekat area Braga, Bandung.</h2>
+          <address>Jl. Braga No. 99, Bandung, Jawa Barat<br>Buka setiap hari, 08.00-22.00 WIB</address>
+          <ul class="contact-list">
+            <li>
+              <span aria-hidden="true">Tel</span>
+              <a href="tel:+620000000000">+62 000-0000-0000</a>
+            </li>
+            <li>
+              <span aria-hidden="true">Mail</span>
+              <a href="mailto:hello@example.com">hello@example.com</a>
+            </li>
+            <li>
+              <span aria-hidden="true">IG</span>
+              <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer">@kopisenja.demo</a>
+            </li>
+          </ul>
+          <a class="button button--contact" href="https://wa.me/?text=Halo%20Kopi%20Senja,%20saya%20ingin%20bertanya%20tentang%20menu%20dan%20reservasi." target="_blank" rel="noopener noreferrer">Chat via WhatsApp<span aria-hidden="true">-&gt;</span></a>
+        </div>
+        <div class="map-wrapper">
+          <iframe
+            title="Peta area Bandung"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d126748.56347863133!2d107.57311681285408!3d-6.903444341687889!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e68e6398252477f%3A0x146a1f93d3e815b2!2sBandung%2C%20Bandung%20City%2C%20West%20Java!5e0!3m2!1sen!2sid!4v1689255678123!5m2!1sen!2sid"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            allowfullscreen>
+          </iframe>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer__inner">
+      <p>&copy; 2026 Kopi Senja Bandung. All rights reserved.</p>
+      <a href="#home">Kembali ke atas</a>
+    </div>
+  </footer>
+
+  <a class="wa-float" href="https://wa.me/?text=Halo%20Kopi%20Senja,%20saya%20ingin%20bertanya%20tentang%20menu%20dan%20reservasi." target="_blank" rel="noopener noreferrer" aria-label="Buka WhatsApp untuk bertanya tentang Kopi Senja">WA</a>
+  <div class="demo-site-bar" role="note" aria-label="Demo site">Demo Site</div>
+</body>
+</html>

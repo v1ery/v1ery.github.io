@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aura Pro - Premium Headphones</title>
+    <style>
+        /* CSS Reset & Variabel */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+        }
+
+        :root {
+            --bg-color: #0f1115;
+            --bg-lighter: #161920;
+            --text-main: #ffffff;
+            --text-muted: #9ca3af;
+            --accent-color: #f59e0b; /* Warna Emas/Amber */
+            --card-bg: #1f2229;
+            --border-color: #2d313b;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Reusable Classes */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 5rem 5%;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: var(--text-main);
+        }
+
+        .section-title span {
+            color: var(--accent-color);
+        }
+
+        /* Navbar */
+        header {
+            padding: 2rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .brand {
+            font-size: 1.8rem;
+            font-weight: 800;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .brand span {
+            color: var(--accent-color);
+        }
+
+        .btn-buy-nav {
+            background-color: transparent;
+            color: var(--accent-color);
+            border: 2px solid var(--accent-color);
+            padding: 0.5rem 1.5rem;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+
+        .btn-buy-nav:hover {
+            background-color: var(--accent-color);
+            color: var(--bg-color);
+        }
+
+        /* Hero Section */
+        .hero {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            max-width: 1200px;
+            margin: 2rem auto 4rem;
+            padding: 0 5%;
+            min-height: 70vh;
+        }
+
+        .hero-text {
+            flex: 1;
+            padding-right: 2rem;
+        }
+
+        .tagline {
+            color: var(--accent-color);
+            font-weight: 600;
+            letter-spacing: 1.5px;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .hero-text h1 {
+            font-size: 4rem;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-text p {
+            color: var(--text-muted);
+            font-size: 1.2rem;
+            margin-bottom: 2.5rem;
+            max-width: 90%;
+        }
+
+        .price {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 2rem;
+            display: block;
+        }
+
+        .btn-primary {
+            background-color: var(--accent-color);
+            color: var(--bg-color);
+            padding: 1rem 3rem;
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 1.2rem;
+            font-weight: bold;
+            display: inline-block;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(245, 158, 11, 0.3);
+        }
+
+        .hero-image {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            position: relative;
+        }
+
+        .glow-circle {
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(245,158,11,0.2) 0%, rgba(15,17,21,0) 70%);
+            border-radius: 50%;
+            position: absolute;
+            z-index: -1;
+        }
+
+        .product-mockup {
+            font-size: 12rem;
+            animation: float 4s ease-in-out infinite;
+            filter: drop-shadow(0 20px 30px rgba(0,0,0,0.5));
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+            100% { transform: translateY(0px); }
+        }
+
+        /* 1. Features Grid Section */
+        .features {
+            background-color: var(--bg-lighter);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            text-align: center;
+        }
+
+        .feature-item h3 {
+            font-size: 1.5rem;
+            margin: 1rem 0;
+            color: var(--accent-color);
+        }
+
+        .feature-item p {
+            color: var(--text-muted);
+        }
+
+        /* 2. Product Showcase Section */
+        .showcase {
+            display: flex;
+            align-items: center;
+            gap: 4rem;
+        }
+
+        .showcase-image {
+            flex: 1;
+            background: linear-gradient(45deg, var(--card-bg), var(--bg-color));
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 5rem;
+        }
+
+        .showcase-text {
+            flex: 1;
+        }
+
+        .showcase-text h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .showcase-text p {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .showcase-list {
+            list-style: none;
+            margin-top: 2rem;
+        }
+
+        .showcase-list li {
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .showcase-list li::before {
+            content: "✓";
+            color: var(--accent-color);
+            font-weight: bold;
+        }
+
+        /* 3. Tech Specs Section */
+        .specs {
+            background-color: var(--bg-lighter);
+        }
+
+        .spec-table {
+            max-width: 800px;
+            margin: 0 auto;
+            background: var(--card-bg);
+            border-radius: 10px;
+            padding: 2rem;
+            border: 1px solid var(--border-color);
+        }
+
+        .spec-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 1.2rem 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .spec-item:last-child {
+            border-bottom: none;
+        }
+
+        .spec-name {
+            font-weight: bold;
+            color: var(--text-main);
+        }
+
+        .spec-value {
+            color: var(--text-muted);
+        }
+
+        /* 4. Testimonials Section */
+        .testi-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .testi-card {
+            background-color: var(--card-bg);
+            padding: 2rem;
+            border-radius: 15px;
+            border: 1px solid var(--border-color);
+        }
+
+        .stars {
+            color: var(--accent-color);
+            margin-bottom: 1rem;
+            letter-spacing: 2px;
+        }
+
+        .testi-text {
+            font-style: italic;
+            color: var(--text-muted);
+            margin-bottom: 1.5rem;
+        }
+
+        .testi-author {
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .testi-author::before {
+            content: "";
+            display: inline-block;
+            width: 30px;
+            height: 2px;
+            background-color: var(--accent-color);
+        }
+
+        /* 5. Bottom CTA Section */
+        .bottom-cta {
+            background-color: var(--accent-color);
+            color: var(--bg-color);
+            text-align: center;
+            padding: 6rem 5%;
+        }
+
+        .bottom-cta h2 {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            color: var(--bg-color);
+        }
+
+        .bottom-cta p {
+            font-size: 1.2rem;
+            margin-bottom: 2.5rem;
+            font-weight: 500;
+        }
+
+        .btn-secondary {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            padding: 1rem 3rem;
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 1.2rem;
+            font-weight: bold;
+            display: inline-block;
+            transition: transform 0.3s;
+        }
+
+        .btn-secondary:hover {
+            transform: translateY(-5px);
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 2rem;
+            color: var(--text-muted);
+            background-color: var(--bg-color);
+        }
+
+        /* Responsiveness */
+        @media (max-width: 768px) {
+            .hero, .showcase {
+                flex-direction: column;
+                text-align: center;
+            }
+            .hero-text, .showcase-text {
+                padding-right: 0;
+                margin-bottom: 3rem;
+            }
+            .hero-text h1 {
+                font-size: 2.8rem;
+            }
+            .showcase-image {
+                width: 100%;
+            }
+            .showcase-list li {
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigasi -->
+    <header>
+        <div class="brand">Aura<span>Pro</span></div>
+        <a href="#beli" class="btn-buy-nav">Pre-Order</a>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-text">
+            <span class="tagline">GENERASI TERBARU AUDIO</span>
+            <h1>Dengarkan Tanpa Batas.</h1>
+            <p>Dilengkapi dengan teknologi Active Noise Cancelling terdepan dan desain ergonomis premium. Tenggelam dalam musik Anda, lupakan dunia luar.</p>
+            <span class="price">Rp 4.999.000</span>
+            <a href="#beli" class="btn-primary">Beli Sekarang</a>
+        </div>
+        <div class="hero-image">
+            <div class="glow-circle"></div>
+            <!-- GANTI EMOJI DI BAWAH DENGAN GAMBAR PRODUK FORMAT PNG TRANSPARAN -->
+            <div class="product-mockup">🎧</div>
+        </div>
+    </section>
+
+    <!-- 1. Features Grid Section -->
+    <section class="features">
+        <div class="container features-grid">
+            <div class="feature-item">
+                <h3>🔊 Audio Resolusi Tinggi</h3>
+                <p>Driver kustom 40mm menghasilkan suara bass yang dalam dan vokal yang sejernih kristal untuk pengalaman studio.</p>
+            </div>
+            <div class="feature-item">
+                <h3>🔇 Smart ANC</h3>
+                <p>Secara dinamis menyesuaikan tingkat peredam bising dengan lingkungan di sekitar Anda secara real-time.</p>
+            </div>
+            <div class="feature-item">
+                <h3>🔋 Baterai 40 Jam</h3>
+                <p>Dengarkan musik tanpa henti. Pengisian daya cepat 10 menit memberikan 5 jam waktu pemutaran.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 2. Product Showcase Section -->
+    <section class="container showcase">
+        <div class="showcase-image">
+            <!-- GANTI EMOJI DI BAWAH DENGAN GAMBAR DETAIL PRODUK -->
+            ✨
+        </div>
+        <div class="showcase-text">
+            <h2>Didesain untuk <span>Kenyamanan</span> Ekstra</h2>
+            <p>Material premium bertemu dengan teknik presisi. Aura Pro dirancang sedemikian rupa agar terasa ringan di kepala Anda, bahkan setelah digunakan berjam-jam lamanya.</p>
+            <ul class="showcase-list">
+                <li>Busa memori (memory foam) berlapis kulit sintetis premium</li>
+                <li>Rangka aluminium anodized yang ringan namun sangat kuat</li>
+                <li>Distribusi berat seimbang untuk mengurangi tekanan pada telinga</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- 3. Tech Specs Section -->
+    <section class="specs">
+        <div class="container">
+            <h2 class="section-title">Spesifikasi <span>Teknis</span></h2>
+            <div class="spec-table">
+                <div class="spec-item">
+                    <span class="spec-name">Bluetooth Version</span>
+                    <span class="spec-value">Bluetooth 5.3 (Multipoint Connection)</span>
+                </div>
+                <div class="spec-item">
+                    <span class="spec-name">Audio Codec</span>
+                    <span class="spec-value">SBC, AAC, LDAC (Hi-Res Audio)</span>
+                </div>
+                <div class="spec-item">
+                    <span class="spec-name">Berat</span>
+                    <span class="spec-value">250 Gram</span>
+                </div>
+                <div class="spec-item">
+                    <span class="spec-name">Mikrofon</span>
+                    <span class="spec-value">6 Mikrofon Beamforming untuk Panggilan</span>
+                </div>
+                <div class="spec-item">
+                    <span class="spec-name">Aplikasi Kompatibel</span>
+                    <span class="spec-value">iOS & Android (Aura App)</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. Testimonials Section -->
+    <section class="container">
+        <h2 class="section-title">Apa Kata <span>Mereka</span></h2>
+        <div class="testi-grid">
+            <div class="testi-card">
+                <div class="stars">★★★★★</div>
+                <p class="testi-text">"Noise cancelling terbaik yang pernah saya coba. Saya menggunakannya di pesawat dan benar-benar tidak mendengar suara mesin sama sekali. Kualitas suaranya juga luar biasa."</p>
+                <div class="testi-author">Budi Santoso, Tech Reviewer</div>
+            </div>
+            <div class="testi-card">
+                <div class="stars">★★★★★</div>
+                <p class="testi-text">"Desainnya sangat elegan dan materialnya terasa sangat mahal. Baterainya awet berhari-hari untuk pemakaian normal saya di kantor. Sangat direkomendasikan!"</p>
+                <div class="testi-author">Andi Wijaya, Music Producer</div>
+            </div>
+            <div class="testi-card">
+                <div class="stars">★★★★☆</div>
+                <p class="testi-text">"Pindah dari brand kompetitor dan tidak menyesal sama sekali. Fitur multipoint-nya sangat mulus saat pindah dari laptop ke HP. Bass-nya punchy tapi tidak berlebihan."</p>
+                <div class="testi-author">Sarah L., Content Creator</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. Bottom CTA Section -->
+    <section id="beli" class="bottom-cta">
+        <h2>Siap untuk upgrade audio Anda?</h2>
+        <p>Jadilah yang pertama merasakan dimensi baru dalam mendengarkan musik. Stok batch pertama terbatas.</p>
+        <a href="#" class="btn-secondary">Pre-Order Sekarang - Rp 4.999.000</a>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Aura Audio Technologies. Dibuat untuk Demo Portofolio Web Design.</p>
+    </footer>
+
+</body>
+</html>
