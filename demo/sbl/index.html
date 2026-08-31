@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Saungbelike</title>
+</head>
+<body>
+    <script>
+        function getSystemLanguage() {
+        const systemLanguage = navigator.language || navigator.userLanguage;
+        const primaryLanguage = systemLanguage.split('-')[0];
+        return primaryLanguage;
+        }
+        function redirectToLanguagePage(primaryLanguage) {
+        let languageCode = 'en';
+        if (primaryLanguage === 'id') {
+            languageCode = 'en';
+        }
+        //const redirectUrl = `https://v1ery.github.io/demo/sbl/${languageCode}/`;
+        const redirectUrl = `index.html/${languageCode}/`;
+        window.location.href = redirectUrl;
+        }
+        const userLanguage = getSystemLanguage();
+        redirectToLanguagePage(userLanguage);
+    </script>
+</body>
+</html>
