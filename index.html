@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title data-i18n="meta.title">Rizky V. Permana</title>
+<meta name="description" content="Rizky V. Permana - Web Developer & Data Specialist di Bandung. Mengerjakan web design, pengembangan website, dan pengolahan data. Di waktu luang, saya belajar cybersecurity, terutama malware analysis dan reverse engineering." data-i18n="meta.description" data-i18n-attr="content" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="styles.css">
+<script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.29/bundled/lenis.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+</head>
+<body>
+
+<div class="cursor-dot"></div>
+<div class="cursor-outline"></div>
+
+<a href="#konten" class="skip-link" data-i18n="skip.link">Lompat ke konten utama</a>
+
+<nav class="nav" id="nav">
+  <div class="container">
+    <a href="#top" class="nav__logo" aria-label="Kembali ke atas" data-i18n="aria.back_to_top" data-i18n-attr="aria-label">rizky<span class="blink">_</span></a>
+    <ul class="nav__links" id="navLinks">
+      <li><a href="#karya" data-i18n="nav.projects">~/karya</a></li>
+      <li><a href="#keahlian" data-i18n="nav.skills">~/keahlian</a></li>
+      <li><a href="#pengalaman" data-i18n="nav.experience">~/pengalaman</a></li>
+      <li><a href="#tentang" data-i18n="nav.about">~/tentang</a></li>
+      <li><a href="#kontak" data-i18n="nav.contact">~/kontak</a></li>
+    </ul>
+    <div class="nav__cta">
+      <div class="lang-switch" role="group" aria-label="Language switcher">
+        <button type="button" class="lang-btn" data-lang="id">ID</button>
+        <button type="button" class="lang-btn" data-lang="en">EN</button>
+      </div>
+      <a href="#kontak" class="btn btn--ghost" data-i18n="cta.contact">Hubungi Saya</a>
+      <button class="nav__toggle" id="navToggle" aria-label="Buka menu navigasi" data-i18n="aria.nav_toggle" data-i18n-attr="aria-label" aria-expanded="false" aria-controls="navLinks">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<main id="konten">
+
+  <!-- ============ HERO ============ -->
+  <header class="hero" id="top">
+    <div class="container">
+      <div class="hero__copy">
+        <div class="hero__status">
+          <span class="pill"><span class="dot"></span><span data-i18n="hero.badge">Terbuka untuk proyek freelance</span></span>
+          <span data-i18n="hero.location">Kota Bandung · 2026</span>
+        </div>
+        <h1>Rizky V.<br><span class="accent-line">Permana</span></h1>
+        <p class="hero__role">Web Developer <span>::</span> Data Specialist <span>::</span> interested in cybersecurity</p>
+        <p class="lead" data-i18n="hero.lead">Mengerjakan website dan data untuk kebutuhan klien mulai dari web design, pengembangan website, sampai pengolahan dan pembersihan data. Di luar pekerjaan utama, saya belajar cybersecurity sebagai hobi, dengan fokus saya sekarang pada malware analysis, C, dan reverse engineering.</p>
+        <div class="hero__actions">
+          <a href="#karya" class="btn btn--primary" data-i18n="hero.cta_primary">Lihat Karya →</a>
+          <a href="#kontak" class="btn btn--ghost" data-i18n="cta.contact">Hubungi Saya</a>
+        </div>
+        <div class="hero__scroll"><span class="line"></span><span data-i18n="hero.scroll">SCROLL</span></div>
+      </div>
+
+      <div class="hero__visual reveal">
+        <div class="terminal">
+          <div class="terminal__bar">
+            <span class="dot-tf dot-tf--r"></span><span class="dot-tf dot-tf--y"></span><span class="dot-tf dot-tf--g"></span>
+            <span class="terminal__title">rizky@sec-lab: ~</span>
+          </div>
+          <div class="terminal__body" id="termBody" aria-hidden="true"></div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ============ MARQUEE ============ -->
+  <div class="marquee-strip" role="presentation">
+    <div class="marquee-track">
+      <span>WEB DEVELOPMENT // PENETRATION TESTING // REVERSE ENGINEERING // DATA CLEANING // MALWARE ANALYSIS // PROGRAMMING //</span>
+      <span>WEB DEVELOPMENT // PENETRATION TESTING // REVERSE ENGINEERING // DATA CLEANING // MALWARE ANALYSIS // PROGRAMMING //</span>
+    </div>
+  </div>
+
+  <!-- ============ STATS ============ -->
+  <section class="stats section">
+    <div class="container reveal">
+      <div class="stat">
+        <div class="stat__num">5+</div>
+        <div class="stat__label" data-i18n="stats.experience.label">Tahun Pengalaman</div>
+        <div class="stat__desc" data-i18n="stats.experience.desc">Administrasi data, pelaporan &amp; pengembangan web</div>
+      </div>
+      <div class="stat">
+        <div class="stat__num">5+</div>
+        <div class="stat__label" data-i18n="stats.langs.label">Bahasa Pemrograman</div>
+        <div class="stat__desc">C, Python, JavaScript, PHP, Bash</div>
+      </div>
+      <div class="stat">
+        <div class="stat__num">6</div>
+        <div class="stat__label" data-i18n="stats.clients.label">Website Dibangun</div>
+        <div class="stat__desc" data-i18n="stats.clients.desc">Company profile &amp; e-commerce sejak 2021</div>
+      </div>
+      <div class="stat">
+        <div class="stat__num">4+</div>
+        <div class="stat__label" data-i18n="stats.security.label">Tahun   </div>
+        <div class="stat__desc" data-i18n="stats.security.desc">Web Security, Pentest, Malware Analisis, Reverse Engineering</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ SKILLS / SCAN ============ -->
+  <section class="section" id="keahlian">
+    <div class="container">
+      <div class="section-head reveal">
+        <p class="eyebrow">$ nmap -sV rizky.dev</p>
+        <h2 data-i18n="skills.heading">Skills</h2>
+      </div>
+
+      <div class="scan-wrap reveal">
+        <table class="scan">
+          <thead>
+            <tr><th>PORT</th><th>STATE</th><th data-i18n="skills.th_service">SKILLS</th><th>STATUS</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="scan-port">80/tcp</td>
+              <td><span class="scan-state">open</span></td>
+              <td class="scan-service"><strong>Web Development</strong><span>PHP · JavaScript · WordPress · Laravel</span></td>
+              <td class="scan-status"><span class="scan-status">PROFESIONAL</span></td>
+            </tr>
+            <tr>
+              <td class="scan-port">21/tcp</td>
+              <td><span class="scan-state">open</span></td>
+              <td class="scan-service"><strong>Data Specialist</strong><span data-i18n="skills.data.desc">Microsoft Excel · Word · Validasi, Entry, &amp; Rapi-rapi Data</span></td>
+              <td class="scan-status"><span class="scan-status">PROFESIONAL</span></td>
+            </tr>
+            <tr>
+              <td class="scan-port">443/tcp</td>
+              <td><span class="scan-state">open</span></td>
+              <td class="scan-service"><strong>Cyber Security</strong><span>Web Security · Pentest · Malware Analysis · Reverse Engineering</span></td>
+              <td class="scan-status"><span class="scan-status">PERSONAL INTEREST</span></td>
+            </tr>
+            <tr>
+              <td class="scan-port">9000/tcp</td>
+              <td><span class="scan-state">open</span></td>
+              <td class="scan-service"><strong>Programming</strong><span>C · Python · JavaScript · PHP · Bash</span></td>
+              <td class="scan-status"><span class="scan-status">PROFESIONAL</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ WORK ============ -->
+  <section class="section" id="karya">
+    <div class="container">
+      <div class="section-head reveal">
+        <p class="eyebrow" data-i18n="projects.eyebrow">$ ls ./karya</p>
+        <h2 data-i18n="projects.heading">Projects</h2>
+      </div>
+
+      <div class="work-grid">
+        <article class="work-card reveal">
+          <div class="work-thumb thumb-01" data-glyph="&lt;/&gt;">
+            <span class="work-tag">WEB DEV</span>
+            <span class="work-log">case_01.log</span>
+          </div>
+          <div class="work-body">
+            <h3>Company Profile &amp; E-Commerce Platform</h3>
+            <p data-i18n="project1.desc">Merancang dan membangun website company profile dan e-commerce untuk kebutuhan klien. Mencakup desain halaman, pengembangan website, konfigurasi WordPress/WooCommerce, serta pertimbangan struktur dan hosting sesuai kebutuhan proyek.</p>
+            <div class="work-chips">
+              <span class="chip">Laravel</span><span class="chip">WordPress</span><span class="chip">WooCommerce</span><span class="chip">Hosting Strategy</span>
+            </div>
+            <a href="#kontak" class="work-link" data-i18n="projects.cta">Diskusikan proyek serupa →</a>
+          </div>
+        </article>
+
+        <article class="work-card reveal">
+          <div class="work-thumb thumb-02" data-glyph="#">
+            <span class="work-tag">SECURITY</span>
+            <span class="work-log">case_02.log</span>
+          </div>
+          <div class="work-body">
+            <h3 data-i18n="project2.title">Web Security Research - Aplikasi Korporat</h3>
+            <p data-i18n="project2.desc">Melakukan pengujian keamanan secara legal pada sebuah aplikasi web korporat. Dalam pengujian tersebut saya menemukan beberapa masalah keamanan, termasuk IDOR pada endpoint tertentu, directory listing, session file exposure, serta origin IP disclosure pada konfigurasi di balik Cloudflare, WAF Bypass.</p>
+            <div class="work-chips">
+              <span class="chip">Reconnaissance</span><span class="chip">IDOR</span><span class="chip">Session Security</span><span class="chip">WAF Bypass</span>
+            </div>
+            <a href="#kontak" class="work-link" data-i18n="projects.cta">Diskusikan proyek serupa →</a>
+          </div>
+        </article>
+
+        <article class="work-card reveal">
+          <div class="work-thumb thumb-03" data-glyph="0x">
+            <span class="work-tag">HACKERONE</span>
+            <span class="work-log">case_03.log</span>
+          </div>
+          <div class="work-body">
+            <h3 data-i18n="project3.title">Bug Bounty &amp; Security Practice</h3>
+            <p data-i18n="project3.desc">Pernah melakukan pengujian pada program bug bounty di HackerOne sebagai bagian dari proses belajar web security. Beberapa laporan yang saya kirim belum menghasilkan vulnerability yang diterima, tetapi pengalaman tersebut membantu saya memahami proses reconnaissance, pengujian, dokumentasi, dan pelaporan vulnerability secara bertanggung jawab.</p>
+            <div class="work-chips">
+              <span class="chip">Bug Bounty</span><span class="chip">Penetration Testing</span><span class="chip">Vulnerability Reporting</span>
+            </div>
+            <a href="#kontak" class="work-link" data-i18n="projects.cta">Diskusikan proyek serupa →</a>
+          </div>
+        </article>
+
+        <article class="work-card reveal">
+          <div class="work-thumb thumb-04" data-glyph="[ ]">
+            <span class="work-tag">MALWARE</span>
+            <span class="work-log">case_04.log</span>
+          </div>
+          <div class="work-body">
+            <h3 data-i18n="project4.title">Malware Analysis &amp; Reverse Engineering</h3>
+            <p data-i18n="project4.desc">Saat ini saya sedang fokus mempelajari malware analysis dan reverse engineering. Saya sedang memperdalam bahasa C, binary analysis, serta penggunaan tools seperti Ghidra, GDB, dan objdump untuk memahami bagaimana sebuah program bekerja di level yang lebih rendah. Pernah menangani malware yang terpasang pada komputer pribadi, yang menjadi salah satu pengalaman praktis yang mendorong saya untuk belajar lebih serius mengenai analisis malware.</p>
+            <div class="work-chips">
+              <span class="chip">Malware Analysis</span><span class="chip">Reverse Engineering</span><span class="chip">Binary Analysis</span>
+            </div>
+            <a href="#kontak" class="work-link" data-i18n="projects.cta">Diskusikan proyek serupa →</a>
+          </div>
+        </article>
+      </div>
+
+      <div class="client-block reveal">
+        <p class="eyebrow" data-i18n="clients.eyebrow">$ ls -la ./klien</p>
+        <h3 class="client-block__title" data-i18n="clients.heading">CLIENTS</h3>
+        <p class="client-block__desc" data-i18n="clients.desc">Sejumlah website company profile &amp; e-commerce yang pernah saya bangun sejak 2021. Sebagian sudah tidak online lagi, tapi proyeknya tetap jadi bukti pengalaman.</p>
+        <div class="client-list-wrap">
+          <div class="client-list">
+            <div class="client-row client-row--head">
+              <span>STATUS</span><span data-i18n="clients.th_client">KLIEN</span><span data-i18n="clients.th_service">LAYANAN</span>
+            </div>
+            <div class="client-row">
+              <span class="client-status">archived</span><span class="client-name">Brillant Indonesia</span><span class="client-service">E-Commerce / Landing Page</span>
+            </div>
+            <div class="client-row">
+              <span class="client-status">archived</span><span class="client-name">Exvo Indonesia</span><span class="client-service">Company Profile</span>
+            </div>
+            <div class="client-row">
+              <span class="client-status">archived</span><span class="client-name">Reglow</span><span class="client-service">Landing Page</span>
+            </div>
+            <div class="client-row">
+              <span class="client-status">archived</span><span class="client-name">Logam Maju Persada</span><span class="client-service">E-Commerce</span>
+            </div>
+            <div class="client-row">
+              <span class="client-status">archived</span><span class="client-name">Wanrakar</span><span class="client-service">E-Commerce</span>
+            </div>
+            <div class="client-row">
+              <span class="client-status">archived</span><span class="client-name">SaungBeLike</span><span class="client-service">Profile</span>
+            </div>
+            <div class="client-row">
+              <span class="client-status">archived</span><span class="client-name">Adsisten.id</span><span class="client-service">Company Profile</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ EXPERIENCE ============ -->
+  <section class="section" id="pengalaman">
+    <div class="container">
+      <div class="section-head reveal">
+        <p class="eyebrow" data-i18n="experience.eyebrow">$ cat riwayat.log</p>
+        <h2 data-i18n="experience.heading">EXPERIENCE</h2>
+      </div>
+
+      <div class="timeline reveal">
+        <div class="tl-item">
+          <div class="tl-num">01</div>
+          <div class="tl-period" data-i18n="exp1.period">2021 - Sekarang</div>
+          <div class="tl-role">
+            <h3 data-i18n="exp1.title">Freelance IT, Web &amp; Data</h3>
+            <div class="tl-org" data-i18n="exp1.org">Independen</div>
+            <p data-i18n="exp1.desc">Membangun website company profile dan e-commerce untuk berbagai klien (Brillant Indonesia, Exvo Indonesia, Reglow, Logam Maju Persada, Wanrakar, Adsisten.id). Mengelola dan memverifikasi data penerima bantuan sosial (BPNT) tingkat kecamatan untuk TKSK Batununggal, Kota Bandung - termasuk membuat laporan harian dan memperbaiki data NIK, nama, dan alamat yang tidak valid.</p>
+            <div class="tl-chips"><span class="chip">Web Development</span><span class="chip">Data Verification</span><span class="chip">BPNT</span><span class="chip">Client Work</span></div>
+          </div>
+        </div>
+
+        <div class="tl-item">
+          <div class="tl-num">02</div>
+          <div class="tl-period">2019 - 2021</div>
+          <div class="tl-role">
+            <h3>Information Technology Staff</h3>
+            <div class="tl-org">Kelurahan Kebon Gedang</div>
+            <p data-i18n="exp2.desc">Menginput dan mengolah data kependudukan - termasuk verifikasi dan perbaikan data ganda/tidak valid - membuat laporan harian dan surat administrasi dengan Microsoft Office, mengelola arsip warga, merancang materi visual dengan Adobe Photoshop, serta maintenance komputer dan jaringan Wi-Fi kantor.</p>
+            <div class="tl-chips"><span class="chip">Data Administration</span><span class="chip">Microsoft Office</span><span class="chip">Adobe Photoshop</span><span class="chip">IT Support</span></div>
+          </div>
+        </div>
+
+        <div class="tl-item">
+          <div class="tl-num">03</div>
+          <div class="tl-period" data-i18n="exp3.period">Paralel · Berkelanjutan</div>
+          <div class="tl-role">
+            <h3 data-i18n="exp3.title">PERSONAL INTERESTS</h3>
+            <div class="tl-org" data-i18n="exp3.org">Bug Bounty · CTF · Riset Pribadi</div>
+            <p data-i18n="exp3.desc">Di luar pekerjaan utama, aktif melakukan penetration test berizin, riset kerentanan (CVE), dan berpartisipasi dalam program bug bounty di HackerOne serta latihan CTF di Hack The Box.</p>
+            <div class="tl-chips"><span class="chip">Pentest</span><span class="chip">Bug Bounty</span><span class="chip">CTF</span><span class="chip">Reverse Engineering</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="demo-block reveal">
+        <p class="eyebrow demo-eyebrow" data-i18n="demos.eyebrow">$ ls ./design</p>
+        <h3 class="demo-block__title" data-i18n="demos.heading">Design</h3>
+        <p class="demo-block__desc" data-i18n="demos.desc">Eksplorasi desain &amp; prototipe</p>
+        <div class="demo-grid">
+          <a href="/demo/kopi-senja/" class="demo-card" target="_blank">
+            <div class="demo-thumb thumb-01"><img src="img/coffee.webp" alt="Coffee Shop"><span class="demo-badge">DEMO</span></div>
+            <div class="demo-card__body">
+              <h4>Store Profile</h4>
+              <span class="demo-link" data-i18n="demos.cta">Lihat →</span>
+            </div>
+          </a>
+          <a href="/demo/aesthetica-demo/" class="demo-card" target="_blank">
+            <div class="demo-thumb thumb-02"><img src="img/aesthetica.webp" alt="Aesthetica"><span class="demo-badge">DEMO</span></div>
+            <div class="demo-card__body">
+              <h4>Aesthetica</h4>
+              <span class="demo-link" data-i18n="demos.cta">Lihat →</span>
+            </div>
+          </a>
+          <a href="/demo/apeiron/" class="demo-card" target="_blank">
+            <div class="demo-thumb thumb-03"><img src="img/apeiron.webp" alt="Apeiron"><span class="demo-badge">DEMO</span></div>
+            <div class="demo-card__body">
+              <h4>Apeiron</h4>
+              <span class="demo-link" data-i18n="demos.cta">Lihat →</span>
+            </div>
+          </a>
+          <a href="/demo/sbl/" class="demo-card" target="_blank">
+            <div class="demo-thumb thumb-03"><img src="img/sbl.webp" alt="SBL"><span class="demo-badge">CLIENT</span></div>
+            <div class="demo-card__body">
+              <h4>SBL</h4>
+              <span class="demo-link" data-i18n="demos.cta">Lihat →</span>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ ABOUT ============ -->
+  <section class="section" id="tentang">
+    <div class="container">
+      <div class="section-head reveal">
+        <p class="eyebrow">$ whoami --verbose</p>
+        <h2 data-i18n="about.heading">Tentang Saya</h2>
+      </div>
+
+      <div class="about-grid reveal">
+        <div>
+          <div class="avatar">RVP</div>
+          <div class="about-info">
+            <div><span data-i18n="about.label_name">Nama</span><b>Rizky V. Permana</b></div>
+            <div><span data-i18n="about.label_location">Lokasi</span><b data-i18n="about.value_location">Kota Bandung, Indonesia</b></div>
+            <div><span data-i18n="about.label_focus">Fokus</span><b>Web Dev · Data · Security</b></div>
+            <div><span data-i18n="about.label_status">Status</span><b data-i18n="about.value_status">Terbuka untuk kolaborasi</b></div>
+          </div>
+        </div>
+        <div class="about-copy">
+          <p data-i18n="about.p1"><strong>Rizky V. Permana</strong> - D3 Teknik Informatika. Selama beberapa tahun terakhir, pekerjaan saya lebih banyak berkaitan dengan website dan data, mulai dari membuat website untuk klien sampai mengolah, membersihkan, dan memverifikasi data.</p>
+          <p data-i18n="about.p2">Cybersecurity sendiri bukan pekerjaan utama saya. Saya mempelajarinya karena memang tertarik. Saya mencoba web security, penetration testing, CTF, dan bug bounty. Saya pernah menemukan beberapa vulnerability dalam pengujian yang dilakukan secara legal, meskipun perjalanan di bug bounty sendiri belum menghasilkan accepted vulnerability.</p>
+          <p data-i18n="about.p3">Saat ini perhatian saya lebih banyak tertuju pada malware analysis dan reverse engineering. Saya sedang memperdalam C dan mencoba memahami program dari level yang lebih rendah.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CONTACT ============ -->
+  <section class="section contact" id="kontak">
+    <div class="container reveal">
+      <p class="eyebrow" data-i18n="contact.eyebrow">$ echo "LET'S CONNECT." && cat ./kontak.json</p>
+      <h2 data-i18n="contact.heading">Mari mulai proyek <span class="accent-line">berikutnya.</span></h2>
+      <p data-i18n="contact.desc">Terbuka untuk proyek web development, layanan data entry/cleaning, atau sekadar diskusi seputar keamanan siber.</p>
+      <a href="mailto:v1ery@proton.me" class="contact-email">v1ery@proton.me</a>
+      <div class="contact-links">
+        <a href="https://app.hackthebox.com/users/881693" target="_blank" rel="noopener noreferrer">HackTheBox</a>
+        <a href="#">HackerOne</a>
+        <a href="#">LinkedIn</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="container">
+    <span>Rizky V. Permana © 2026</span>
+    <span class="status-line"><span class="dot"></span>status: online</span>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+
+</body>
+</html>
