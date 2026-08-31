@@ -1,0 +1,601 @@
+  :root{
+    --paper:       #E7E2D6;
+    --paper-deep:  #DCD6C7;
+    --ink:         #17140F;
+    --ink-soft:    #4A4636;
+    --patina:      #5C7A6B;
+    --rust:        #7A3B2E;
+    --rule:        #C7C0AC;
+    --quote-split-bg: #2F2019;
+    --quote-pair-bg: #F2E6CB;
+
+    --font-display: "Fraunces", serif;
+    --font-body:    "Newsreader", serif;
+    --font-mono:    "JetBrains Mono", monospace;
+
+    --fs-hero:    clamp(3.2rem, 12vw, 9.5rem);
+    --fs-display: clamp(2.2rem, 6vw, 4.6rem);
+    --fs-quote:   clamp(1.6rem, 4vw, 2.8rem);
+    --fs-body:    1.15rem;
+    --fs-label:   0.72rem;
+
+    --spine-w: 84px;
+    --gutter: clamp(24px, 6vw, 96px);
+
+    /* hero 3-column layout: text / image / scroll-cue strip */
+    --hero-text-w: 34%;
+    --hero-scroll-w: 56px;
+    --hero-gap: clamp(20px, 4vw, 56px);
+  }
+
+  *{ box-sizing: border-box; }
+
+  html{ scroll-behavior: smooth; }
+
+  @media (prefers-reduced-motion: reduce){
+    html{ scroll-behavior: auto; }
+  }
+
+  body{
+    margin:0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--font-body);
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+
+  body.is-loading{
+    overflow: hidden;
+    height: 100vh;
+  }
+
+  html.paginated,
+  body.paginated{
+    overflow: hidden;
+    height: 100vh;
+    height: 100dvh;
+    overscroll-behavior: none;
+  }
+
+  /* =========================
+     PRELOADER
+     Covers the viewport instantly via plain CSS (no JS needed
+     for the cover itself)
+     ========================= */
+  #preloader{
+    position: fixed;
+    inset: 0;
+    z-index: 999;
+    background: var(--paper);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 24px;
+  }
+  .preloader-word{
+    margin: 0;
+    font-family: var(--font-display);
+    font-style: italic;
+    font-weight: 500;
+    font-size: clamp(2rem, 6vw, 3.4rem);
+    color: var(--ink);
+    letter-spacing: -0.01em;
+  }
+  .preloader-bar{
+    position: relative;
+    width: min(240px, 50vw);
+    height: 1px;
+    background: var(--rule);
+    overflow: hidden;
+  }
+  #preloader-fill{
+    position: absolute;
+    top: 0; left: 0;
+    height: 100%;
+    width: 0%;
+    background: var(--patina);
+  }
+  #preloader-count{
+    margin: 0;
+    font-family: var(--font-mono);
+    font-size: var(--fs-label);
+    letter-spacing: 0.15em;
+    color: var(--ink-soft);
+  }
+
+  /* subtle paper grain pure CSS */
+  body::before{
+    content:"";
+    position: fixed;
+    inset:0;
+    pointer-events:none;
+    z-index: 5;
+    opacity: 0.05;
+    mix-blend-mode: multiply;
+    background-image:
+      repeating-radial-gradient(circle at 0 0, transparent 0, transparent 2px, var(--ink) 2px, var(--ink) 2.2px);
+    background-size: 5px 5px;
+  }
+
+  /* =========================
+     SPINE  signature element
+     ========================= */
+  .spine{
+    position: fixed;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: var(--spine-w);
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: 40px 0;
+    z-index: 10;
+  }
+  @media (min-width: 900px){
+    .spine{ display: flex; }
+    body{ padding-left: var(--spine-w); }
+  }
+
+  .spine-title{
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+    font-family: var(--font-mono);
+    font-size: var(--fs-label);
+    letter-spacing: 0.25em;
+    color: var(--ink-soft);
+  }
+
+  .spine-line{
+    position: relative;
+    width: 1px;
+    flex: 1;
+    background: var(--rule);
+    margin: 24px 0;
+  }
+
+  #spine-fill{
+    position:absolute;
+    top:0; left:0; width:100%;
+    height: 18%;
+    background: var(--patina);
+  }
+
+  .spine-marks{
+    position:absolute;
+    top:0; left:50%;
+    transform: translateX(-50%);
+    height:100%;
+    width: 100%;
+  }
+  .spine-mark{
+    position:absolute;
+    left:50%;
+    transform: translate(-50%,-50%);
+    width: 9px; height:9px;
+    border-radius:50%;
+    background: var(--paper);
+    border: 1px solid var(--ink-soft);
+  }
+  .spine-mark.active{
+    background: var(--patina);
+    border-color: var(--patina);
+  }
+  .spine-mark{
+    cursor: pointer;
+    transition: transform 0.25s ease;
+  }
+  .spine-mark:hover{
+    transform: translate(-50%,-50%) scale(1.5);
+  }
+
+  .spine-year{
+    font-family: var(--font-mono);
+    font-size: var(--fs-label);
+    color: var(--ink-soft);
+  }
+
+  /* =========================
+     SHARED PLATE / SECTION
+     ========================= */
+  .plate{
+    height: 100vh;
+    height: 100dvh; 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 10vh var(--gutter);
+    position: relative;
+    overflow: hidden;
+  }
+  .plate + .plate{
+    border-top: 1px solid var(--rule);
+  }
+
+  /* =========================
+     PAGINATED MODE
+     ========================= */
+  body.paginated .plate{
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    height: 100vh;
+    height: 100dvh;
+    z-index: 1;
+    border-top: none;
+  }
+  @media (min-width: 900px){
+    body.paginated .plate{
+      left: var(--spine-w);
+      width: calc(100% - var(--spine-w));
+    }
+  }
+
+  /* Fallback / base tone for sections marked "deep" (manifesto).*/
+  .plate.deep{
+    background: var(--paper-deep);
+  }
+
+  .eyebrow{
+    font-family: var(--font-mono);
+    font-size: var(--fs-label);
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--patina);
+    margin: 0 0 20px 0;
+  }
+
+  .measure{
+    max-width: 640px;
+  }
+
+  /* =========================
+     HERO  3-column plate:
+     box 1 hero-text / box 2 hero-image / box 3 hero-scroll
+     ========================= */
+  #hero{ padding-top: 6vh; padding-bottom: 6vh; }
+
+  .hero-grid{
+    display: grid;
+    grid-template-columns: var(--hero-text-w) 1fr var(--hero-scroll-w);
+    gap: var(--hero-gap);
+    align-items: stretch;
+    flex: 1 1 auto;
+    min-height: 0;
+  }
+
+  /* box 1 : hero text */
+  .hero-text{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .hero-text-top > * {
+    opacity: 0;
+    y: 36;
+  }
+  .hero-word{
+    font-family: var(--font-display);
+    font-style: italic;
+    font-weight: 500;
+    font-size: var(--fs-hero);
+    line-height: 0.92;
+    margin: 0.1em 0 0.3em 0;
+    letter-spacing: -0.01em;
+  }
+  .hero-sub{
+    font-size: var(--fs-body);
+    color: var(--ink-soft);
+    max-width: 480px;
+    font-style: italic;
+  }
+  .hero-meta{
+    margin: 0;
+    font-family: var(--font-mono);
+    font-size: var(--fs-label);
+    color: var(--ink-soft);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  /* box 2 : image */
+  .hero-image{
+    overflow: hidden;
+    perspective: 900px;
+  }
+  .hero-image img{
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    scale: 0;
+    opacity: 0;
+  }
+
+  /* box 3 : vertical scroll cue */
+  .hero-scroll{
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    padding-bottom: 0.4em;
+  }
+  .scroll-cue{
+    writing-mode: vertical-rl;
+    font-family: var(--font-mono);
+    font-size: var(--fs-label);
+    color: var(--ink-soft);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  @media (max-width: 900px){
+    .hero-grid{
+      grid-template-columns: 1fr;
+      grid-template-rows: auto 1fr auto;
+      gap: 20px;
+    }
+    .hero-image{ order: 2; min-height: 0; }
+    .hero-text{ order: 1; }
+    .hero-scroll{
+      order: 3;
+      justify-content: flex-end;
+      padding-bottom: 0;
+    }
+    .hero-scroll .scroll-cue{ writing-mode: horizontal-tb; opacity: 0;}
+  }
+
+  /* =========================
+     QUOTE PLATES
+     ========================= */
+  .quote-num{
+    font-family: var(--font-mono);
+    font-size: var(--fs-label);
+    color: var(--ink-soft);
+    letter-spacing: 0.15em;
+    margin-bottom: 24px;
+  }
+  blockquote{
+    margin: 0 0 28px 0;
+    font-family: var(--font-display);
+    font-style: italic;
+    font-weight: 400;
+    font-size: var(--fs-quote);
+    line-height: 1.28;
+    max-width: 780px;
+  }
+  .attribution{
+    font-family: var(--font-mono);
+    font-size: var(--fs-label);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+  }
+  .attribution span{ color: var(--ink); font-weight: 500; }
+  .QuoteII {
+    color: #a39c7e;
+    span {
+      color: var(--rule);
+      font-weight: 500;
+    }
+  }
+
+  /* =========================
+     QUOTE PLATE WITH IMAGE
+     ========================= */
+  .quote-plate{ position: relative; }
+
+  .quote-plate .quote-image{
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 68%;
+    overflow: hidden;
+  }
+  .quote-plate .quote-image img{
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+    scale: 1.3;
+    opacity: 0;
+  }
+
+  .quote-plate .quote-card{
+    position: absolute;
+    top: 50%;
+    left: 58%;
+    right: 0;
+    transform: translateY(-50%);
+    background: var(--paper);
+    padding: clamp(28px, 4vw, 48px) clamp(24px, 4vw, 56px);
+    z-index: 2;
+  }
+  .quote-plate .quote-card blockquote,
+  .quote-plate .quote-card .attribution{
+    max-width: none;
+  }
+
+  @media (max-width: 900px){
+    .quote-plate{
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+    .quote-plate .quote-image{
+      position: static;
+      width: 100%;
+      flex: 1 1 auto;
+      min-height: 0;
+    }
+    .quote-plate .quote-card{
+      position: static;
+      transform: none;
+      width: 100%;
+      flex: 0 0 auto;
+      background: transparent;
+      border: none;
+      padding: 0;
+    }
+  }
+
+  /* =========================
+     MANIFESTO
+     box 1 (.manifesto-image) stacked above box 2 (.measure)
+     ========================= */
+  .manifesto-stack{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: clamp(24px, 4vw, 40px);
+  }
+  .manifesto-image{
+    width: min(620px, 52vh, 100%);
+    aspect-ratio: 1 / 1;
+    overflow: hidden;
+    clip-path: inset(0 0 0 0);
+  }
+  .manifesto-image img{
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+  }
+  .manifesto-body{
+    font-size: 1.4rem;
+    line-height: 1.6;
+    font-style: italic;
+  }
+
+  /* =========================
+     QUOTE SPLIT (quote-2)
+     ========================= */
+  .plate.quote-split{
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    padding: 0 0 0 var(--gutter);
+    gap: 0;
+    background: var(--quote-split-bg);
+    color: var(--paper);
+  }
+  .quote-split .measure{
+    align-self: center;
+    flex: 0 0 auto;
+    margin-right: clamp(32px, 5vw, 64px);
+  }
+  .quote-split-image{
+    flex: 1 1 auto;
+    min-width: 0;
+    overflow: hidden;
+  }
+  .quote-split-image img{
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+  }
+
+  @media (max-width: 900px){
+    .plate.quote-split{
+      flex-direction: column;
+      align-items: stretch;
+      padding: 8vh var(--gutter);
+      gap: 20px;
+    }
+    .quote-split .measure{
+      align-self: flex-start;
+      margin-right: 0;
+    }
+    .quote-split-image{
+      flex: 1 1 auto;
+      min-height: 0;
+    }
+  }
+
+  /* =========================
+     QUOTE PAIR (quote-3)
+     ========================= */
+  .plate.quote-pair{
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    gap: clamp(32px, 5vw, 64px);
+    background: var(--quote-pair-bg);
+  }
+  .quote-pair-image{
+    flex: 0 0 auto;
+    aspect-ratio: 1 / 1;
+    overflow: hidden;
+  }
+  .quote-pair-image img{
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+    clip-path: inset(0 0 0 0);
+  }
+  .quote-pair .measure{
+    align-self: center;
+    flex: 1 1 auto;
+    min-width: 0;
+  }
+
+  @media (max-width: 900px){
+    .plate.quote-pair{
+      flex-direction: column;
+      align-items: stretch;
+      gap: 20px;
+    }
+    .quote-pair-image{
+      flex: 1 1 auto;
+      width: 100%;
+      height: auto;
+      min-height: 0;
+      aspect-ratio: unset;
+    }
+    .quote-pair .measure{
+      align-self: flex-start;
+      flex: 0 0 auto;
+    }
+  }
+
+  /* =========================
+     COLOPHON / FOOTER
+     ========================= */
+  #colophon{
+    min-height: 60vh;
+    justify-content: space-between;
+  }
+  .closing-line{
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: var(--fs-display);
+    max-width: 620px;
+  }
+  .footer-row{
+    display:flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+    font-family: var(--font-mono);
+    font-size: var(--fs-label);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    border-top: 1px solid var(--rule);
+    padding-top: 20px;
+  }
+
+  @media (max-width: 600px){
+    .plate{ padding: 8vh 24px; }
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    #preloader{ transition: none; }
+  }
