@@ -22,7 +22,7 @@
       'hero.cta_primary': 'Projects →',
       'hero.scroll': 'SCROLL',
       'stats.langs.label': 'Bahasa Pemrograman',
-      'stats.security.label': 'Sejak 2019 Ekplorasi',
+      'stats.security.label': 'Ekplorasi Sejak 2019',
       'stats.security.desc': 'Web Security, Pentest, Malware Analisis, Reverse Engineering',
       'stats.experience.label': 'Tahun Pengalaman',
       'stats.experience.desc': 'Administrasi data, pelaporan & pengembangan web',
